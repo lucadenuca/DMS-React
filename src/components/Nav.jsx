@@ -12,10 +12,16 @@ const Nav = () => {
         axios.post(`api/odjava`).then(res => {
             localStorage.removeItem('Username');
             localStorage.removeItem('Login_token');
+            localStorage.removeItem('Vrsta_korisnika');
+            localStorage.removeItem('Id');
 
-            alert("Odjavljivanje uspesno")
+            if (res.data.value) {
+                alert("Odjavljivanje uspesno")
+                navigate('/prijava');
+            } else {
+                alert("Odjavljivanje neuspesno")
+            }
 
-            navigate('/prijava');
         });
     }
 

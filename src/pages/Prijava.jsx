@@ -32,6 +32,9 @@ const Prijava = () => {
                 if (res.data.value) {
                     localStorage.setItem('Username', res.data.username);
                     localStorage.setItem('Login_token', res.data.token);
+                    localStorage.setItem('Vrsta_korisnika', res.data.vrsta_korisnika);
+                    localStorage.setItem('Id', res.data.id);
+
                     alert("Prijava uspesna!")
                     navigate('/docs');
                 }
