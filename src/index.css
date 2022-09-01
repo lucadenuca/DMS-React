@@ -48,3 +48,15 @@ body {
   margin-top: 25px;
   margin-left: 820px;
 }
+
+.reg_form_div{
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 500px;
+}
+
+#reg-btn {
+  font-size: 20px;
+  margin-top: 15px;
+}

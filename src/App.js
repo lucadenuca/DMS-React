@@ -1,6 +1,6 @@
 import HomePage from "./pages/HomePage";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RegisterPage from "./pages/RegisterPage";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="registracija" element={<RegisterPage />} />
+          <Route path="registracija" element={<Register />} />
         </Routes>
       </Router >
     </div>
