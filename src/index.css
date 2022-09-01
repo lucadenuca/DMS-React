@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  body: 0;
+  padding: 0;
 }
 
 nav {
@@ -11,9 +11,40 @@ nav {
 
 nav li {
   list-style-type: none;
-  margin-top: 10px;
+  margin-top: 3px;
   margin-left: 40px;
   text-decoration: none;
   font-size: 35px;
   color: #fff3f2;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:visited{
+  color: #fff3f2;
+}
+
+body {
+  background-color: #fff9f8;
+}
+
+#dms-h2{
+  font-size: 65px;
+  margin-top: 150px;
+  margin-left: 550px;
+  
+}
+
+#button-prijavi-se{
+  margin-left: 850px;
+  margin-top: 30px;
+  font-size: 55px;
+}
+
+#nn {
+  font-size: 20px;
+  margin-top: 25px;
+  margin-left: 820px;
 }
