@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import axios from 'axios';
+
 
 const Register = () => {
 
@@ -22,6 +24,24 @@ const Register = () => {
     function handleEmail(e) {
         setEmail(e.target.value)
     }
+
+    const user = {
+        ime_prezime: ime_prezime,
+        username: username,
+        password: password,
+        email: email,
+    }
+
+
+    function registracija() {
+        axios.post(`api/registracija`, user).then(res => {
+            if (res.data)
+                alert("Registracija uspesna!")
+        }).catch(error => {
+            alert(error.response.data.error)
+        })
+    }
+
 
 
     return (
@@ -50,7 +70,7 @@ const Register = () => {
                 </div>
 
 
-                <button className='btn btn-dark' id='reg-btn'>Registruj se</button>
+                <button onClick={registracija} className='btn btn-dark' id='reg-btn'>Registruj se</button>
             </div>
 
         </div>
