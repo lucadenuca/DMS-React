@@ -38,9 +38,11 @@ body {
 }
 
 #button-prijavi-se{
-  margin-left: 850px;
+  margin-left: 860px;
   margin-top: 30px;
-  font-size: 55px;
+  font-size: 45px;
+  background-color: #ffada3;
+  color: #fff3f2;
 }
 
 #nn {
@@ -59,6 +61,8 @@ body {
 #reg-btn {
   font-size: 20px;
   margin-top: 15px;
+  background-color: #ffada3;
+  color: #fff3f2;
 }
 
 .prijava_form{
@@ -73,4 +77,10 @@ body {
   width: 200px;
   margin-top: 30px;
   font-size: 40px;
+  background-color: #ffada3;
+  color: #fff3f2;
+}
+
+#srr {
+  margin-left: 30px;
 }

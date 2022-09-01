@@ -1,10 +1,12 @@
 import Nav from "../components/Nav";
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const Prijava = () => {
 
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -28,7 +30,10 @@ const Prijava = () => {
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.post(`api/prijava`, user).then(res => {
                 if (res.data.value) {
+                    localStorage.setItem('Username', res.data.username);
+                    localStorage.setItem('Login_token', res.data.token);
                     alert("Prijava uspesna!")
+                    navigate('/docs');
                 }
                 else {
                     alert("Prijava neuspesna");
