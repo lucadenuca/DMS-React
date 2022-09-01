@@ -34,11 +34,14 @@ const Register = () => {
 
 
     function registracija() {
-        axios.post(`api/registracija`, user).then(res => {
-            if (res.data)
-                alert("Registracija uspesna!")
-        }).catch(error => {
-            alert(error.response.data.error)
+
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post(`api/registracija`, user).then(res => {
+                if (res.data)
+                    alert("Registracija uspesna!")
+            }).catch(error => {
+                alert(error.response.data.error)
+            })
         })
     }
 

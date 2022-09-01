@@ -1,5 +1,7 @@
 import Nav from "../components/Nav";
-import { useState } from 'react'
+import { useState } from 'react';
+import axios from 'axios';
+
 
 const Prijava = () => {
 
@@ -13,6 +15,31 @@ const Prijava = () => {
     function handlePassword(e) {
         setPassword(e.target.value)
     }
+
+    const user = {
+        username: username,
+        password: password,
+    }
+
+    console.log(user)
+
+    function prijava() {
+
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post(`api/prijava`, user).then(res => {
+                if (res.data.value) {
+                    alert("Prijava uspesna!")
+                }
+                else {
+                    alert("Prijava neuspesna");
+                }
+
+            }).catch(error => {
+                alert(error.response.data.error)
+            })
+        })
+    }
+
 
 
 
@@ -33,7 +60,7 @@ const Prijava = () => {
                     <input type='password' className="form-control mt-2 mb-2" value={password} onChange={handlePassword} />
                 </div>
 
-                <button className="btn btn-light" id="button-prijavi-se-frm">Prijavi se</button>
+                <button onClick={prijava} className="btn btn-light" id="button-prijavi-se-frm">Prijavi se</button>
             </div>
         </div>
     )
