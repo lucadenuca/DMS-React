@@ -84,3 +84,19 @@ body {
 #srr {
   margin-left: 30px;
 }
+
+.tbl-div{
+  margin-top: 50px;
+  width: 950px;
+  margin-left: 500px;
+}
+
+#th-tbl {
+  background-color: #ffada3;
+}
+
+#dcm-h1{
+  margin-top: 50px;
+  margin-left: 820px;
+  font-size: 50px;
+}

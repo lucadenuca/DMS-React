@@ -36,7 +36,7 @@ const Prijava = () => {
                     localStorage.setItem('Id', res.data.id);
 
                     alert("Prijava uspesna!")
-                    navigate('/docs');
+                    navigate('/view');
                 }
                 else {
                     alert("Prijava neuspesna");
