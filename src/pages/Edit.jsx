@@ -1,17 +1,17 @@
-import Nav from "../components/Nav";
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react'
+import Nav from '../components/Nav';
+import { useParams } from 'react-router-dom';
 
+const Edit = () => {
 
-const Docs = () => {
-
-    const navigate = useNavigate();
+    const parametri = useParams();
+    const idParametar = parametri.id;
     const [naziv, setNaziv] = useState('');
     const [opis, setOpis] = useState('');
     const [kategorija, setKategorija] = useState('');
     const [fajl, setFajl] = useState();
     const [korisnik, setKorisnik] = useState('');
+
 
     function handleNaziv(e) {
         setNaziv(e.target.value)
@@ -29,31 +29,10 @@ const Docs = () => {
         setFajl(e.target.files[0])
     }
 
-    function uploadFile() {
-
-        const file = new FormData();
-
-        file.append('naziv', naziv);
-        file.append('opis', opis);
-        file.append('kategorija', kategorija);
-        file.append('fajl', fajl);
-        file.append('korisnik', localStorage.getItem('Id'));
-
-        axios.post(`api/upload`, file).then(res => {
-            if (res.data) {
-                alert("Uspesno uploadovan fajl")
-                navigate("/view")
-            } else {
-                alert("Greska")
-            }
-        });
-
-
-    }
-
 
     return (
-        <div className="docs_div">
+        <div className="ed-div">
+
             <Nav />
 
             <div className="reg_form_div">
@@ -79,11 +58,13 @@ const Docs = () => {
                     <input type="file" className="form-controlmt-2 mb-2" onChange={handleFajl} />
                 </div>
 
-                <button onClick={uploadFile} className='btn btn-dark' id='reg-btn'>Upload File</button>
+                <button className='btn btn-dark' id='reg-btn'>Upload File</button>
             </div>
+
+
 
         </div>
     )
 }
 
-export default Docs;
+export default Edit;

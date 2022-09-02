@@ -100,3 +100,20 @@ body {
   margin-left: 820px;
   font-size: 50px;
 }
+
+#add-btn{
+  margin-left: 870px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+  font-size: 22px;
+  width: 150px;
+}
+
+#edtbtn{
+  margin-left: 5px;
+  width: 80px;
+}
+
+#delbtn {
+  margin-left: 60px;
+}
