@@ -1,8 +1,12 @@
 import Nav from "../components/Nav";
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 const Docs = () => {
 
+    const navigate = useNavigate();
     const [naziv, setNaziv] = useState('');
     const [opis, setOpis] = useState('');
     const [kategorija, setKategorija] = useState('');
@@ -27,7 +31,26 @@ const Docs = () => {
 
     function uploadFile() {
 
+        const file = new FormData();
+
+        file.append('naziv', naziv);
+        file.append('opis', opis);
+        file.append('kategorija', kategorija);
+        file.append('fajl', fajl);
+        file.append('korisnik', localStorage.getItem('Id'));
+
+        axios.post(`api/upload`, file).then(res => {
+            if (res.data) {
+                alert("Uspesno uploadovan fajl")
+                navigate("/")
+            } else {
+                alert("Greska")
+            }
+        });
+
+
     }
+
 
     return (
         <div className="docs_div">
