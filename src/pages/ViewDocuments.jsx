@@ -8,6 +8,8 @@ const ViewDocuments = () => {
     const [documents, setDocuments] = useState([]);
     var korisnikId = localStorage.getItem('Id');
     const navigate = useNavigate();
+    const [input, setInput] = useState('');
+
 
     useEffect(() => {
         axios.get(`api/get-documents/${korisnikId}`).then(res => {
@@ -27,6 +29,17 @@ const ViewDocuments = () => {
     }
 
 
+    function handleInput(e) {
+        setInput(e.target.value)
+    }
+
+    function pretraga() {
+        axios.get(`api/search-documents/${korisnikId}/${input}`).then(res => {
+            setDocuments(res.data.documents);
+        });
+
+    }
+
 
 
     return (
@@ -37,6 +50,11 @@ const ViewDocuments = () => {
             <h1 id='dcm-h1'>Documents</h1>
 
             <Link to="/docs"><button className='btn btn-dark' id='add-btn'>ADD</button></Link>
+
+            <div className='sr-div'>
+                <input type="text" onChange={handleInput} value={input} className='form-control' id='in-txt-src' />
+                <button className='btn btn-dark' onClick={pretraga} id='btn-src'>Pretraga</button>
+            </div>
 
             <div className='tbl-div'>
                 <table className="table table-bordered">
