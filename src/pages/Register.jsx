@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import Nav from '../components/Nav';
 
 
 const Register = () => {
@@ -49,6 +50,8 @@ const Register = () => {
 
     return (
         <div className="reg_page_div">
+
+            <Nav />
 
             <div className="reg_form_div">
 

@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Nav from '../components/Nav';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Edit = () => {
 
@@ -28,6 +29,38 @@ const Edit = () => {
     function handleFajl(e) {
         setFajl(e.target.files[0])
     }
+
+
+
+    useEffect(() => {
+
+        axios.get(`api/edit/${idParametar}`).then(res => {
+
+            setNaziv(res.data.document.naziv)
+            setOpis(res.data.document.opis)
+            setKategorija(res.data.document.kategorija)
+            setNaziv(res.data.document.naziv)
+
+        });
+
+    }, []);
+
+
+    function update() {
+
+        const file = new FormData();
+
+        file.append('naziv', naziv);
+        file.append('opis', opis);
+        file.append('kategorija', kategorija);
+        file.append('fajl', fajl);
+
+        axios.post(`api/update/${idParametar}`, file).then(res => {
+            if (res.data.value)
+                alert('Uspesno izmenjen fajl')
+        });
+    }
+
 
 
     return (
@@ -58,7 +91,7 @@ const Edit = () => {
                     <input type="file" className="form-controlmt-2 mb-2" onChange={handleFajl} />
                 </div>
 
-                <button className='btn btn-dark' id='reg-btn'>Upload File</button>
+                <button onClick={update} className='btn btn-dark' id='reg-btn'>Upload File</button>
             </div>
 
 
