@@ -38,7 +38,7 @@ const Register = () => {
 
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.post(`api/registracija`, user).then(res => {
-                if (res.data)
+                if (res.data.value)
                     alert("Registracija uspesna!")
             }).catch(error => {
                 alert(error.response.data.error)
