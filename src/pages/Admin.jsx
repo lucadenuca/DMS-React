@@ -34,7 +34,7 @@ const Admin = () => {
 
             <Nav />
 
-            <h1 id='adm-h1'>Admin</h1>
+           
 
             <Link to="/docs"><button className='btn btn-dark' id='add-btn'>ADD</button></Link>
 

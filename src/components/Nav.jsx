@@ -32,6 +32,7 @@ const Nav = () => {
                 {localStorage.getItem('Id') ? (localStorage.getItem('Vrsta_korisnika') === 'admin' ? <li><Link to="/admin">Home</Link></li> : <li> <Link to="/view">Home</Link></li>)
                     : <li><Link to="/">Home</Link></li>}
                 {localStorage.getItem('Username') ? <li id='srr'><Link to='#' onClick={odjava}>Logout</Link></li> : ''}
+                {localStorage.getItem('Username') ? <li id='srr'><Link to='/check'>Check</Link></li> : ''}
             </nav>
         </div >
     )

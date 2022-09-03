@@ -123,3 +123,26 @@ body {
   margin-top: 50px;
   margin-left: 870px;
 }
+
+#cf-h1{
+  font-size: 50px;
+  margin-top: 50px;
+  margin-left: 800px;
+}
+
+.cf-in{
+  font-size: 30px;
+  margin-top: 30px;
+  margin-left: 800px;
+}
+
+#lbl-cf {
+  margin-right: 20px;
+}
+
+#btn-check {
+  margin-right: 850px;
+  margin-left: 60px;
+  width: 200px;
+  font-size: 25px;
+}
