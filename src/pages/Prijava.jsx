@@ -36,6 +36,12 @@ const Prijava = () => {
                     localStorage.setItem('Id', res.data.id);
 
                     alert("Prijava uspesna!")
+
+                    if (localStorage.getItem('Vrsta_korisnika') === 'admin') {
+                        navigate('/admin')
+                        return
+                    }
+
                     navigate('/view');
                 }
                 else {

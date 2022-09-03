@@ -29,7 +29,8 @@ const Nav = () => {
     return (
         <div className="nav_div">
             <nav>
-                {localStorage.getItem('Id') ? <li><Link to="/view">Home</Link></li> : <li><Link to="/">Home</Link></li>}
+                {localStorage.getItem('Id') ? (localStorage.getItem('Vrsta_korisnika') === 'admin' ? <li><Link to="/admin">Home</Link></li> : <li> <Link to="/view">Home</Link></li>)
+                    : <li><Link to="/">Home</Link></li>}
                 {localStorage.getItem('Username') ? <li id='srr'><Link to='#' onClick={odjava}>Logout</Link></li> : ''}
             </nav>
         </div >

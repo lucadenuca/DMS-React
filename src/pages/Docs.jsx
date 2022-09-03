@@ -40,8 +40,14 @@ const Docs = () => {
         file.append('korisnik', localStorage.getItem('Id'));
 
         axios.post(`api/upload`, file).then(res => {
-            if (res.data) {
+            if (res.data.value) {
                 alert("Uspesno uploadovan fajl")
+
+                if (localStorage.getItem('Vrsta_korisnika') === 'admin') {
+                    navigate('/admin')
+                    return
+                }
+
                 navigate("/view")
             } else {
                 alert("Greska")

@@ -6,6 +6,7 @@ import Prijava from "./pages/Prijava";
 import Docs from "./pages/Docs";
 import ViewDocuments from "./pages/ViewDocuments";
 import Edit from "./pages/Edit";
+import Admin from "./pages/Admin";
 
 axios.defaults.baseURL = "http://localhost:8000/"
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -24,6 +25,7 @@ function App() {
           <Route path="docs" element={<Docs />} />
           <Route path="view" element={<ViewDocuments />} />
           <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </Router >
     </div>

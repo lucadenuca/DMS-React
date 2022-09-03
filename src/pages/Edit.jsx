@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Nav from '../components/Nav';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Edit = () => {
@@ -12,6 +12,8 @@ const Edit = () => {
     const [kategorija, setKategorija] = useState('');
     const [fajl, setFajl] = useState();
     const [korisnik, setKorisnik] = useState('');
+    const navigate = useNavigate();
+
 
 
     function handleNaziv(e) {
@@ -56,8 +58,16 @@ const Edit = () => {
         file.append('fajl', fajl);
 
         axios.post(`api/update/${idParametar}`, file).then(res => {
-            if (res.data.value)
+            if (res.data.value) {
                 alert('Uspesno izmenjen fajl')
+
+                if (localStorage.getItem('Vrsta_korisnika') === 'admin') {
+                    navigate('/admin')
+                    return
+                }
+
+                navigate("/view")
+            }
         });
     }
 
