@@ -49,7 +49,7 @@ const CheckFile = () => {
 
             <div className="cf-in">
                 <input type="file" className="form-controlmt-2 mb-2" onChange={handleFajl} />
-                <button className='btn btn-dark' onClick={check} id='btn-check'>Check</button>
+                <button className='btn btn-dark mt-3 mb-2' onClick={check} id='btn-check'>Check</button>
                 <h2 className='mt-3'>Naziv: {naziv}</h2>
                 <h2>Tip: {tip}</h2>
                 <h2>Velicina: {velicina}    B</h2>

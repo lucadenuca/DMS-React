@@ -8,6 +8,7 @@ const Admin = () => {
 
     const [documents, setDocuments] = useState([]);
     const navigate = useNavigate();
+    const [input, setInput] = useState('');
 
     useEffect(() => {
         axios.get(`api/get-documents`).then(res => {
@@ -29,14 +30,30 @@ const Admin = () => {
     }
 
 
+    function handleInput(e) {
+        setInput(e.target.value)
+    }
+
+    function pretraga() {
+        axios.get(`api/search-documents-admin/${input}`).then(res => {
+            setDocuments(res.data.documents);
+        });
+
+    }
+
+
     return (
         <div className="admin-div">
 
             <Nav />
 
-           
+            <h1 id='adm-h1'>Admin</h1>
 
             <Link to="/docs"><button className='btn btn-dark' id='add-btn'>ADD</button></Link>
+            <div className='sr-div'>
+                <input type="text" onChange={handleInput} value={input} className='form-control' id='in-txt-src' />
+                <button className='btn btn-dark' onClick={pretraga} id='btn-src'>Pretraga</button>
+            </div>
 
             <div className='tbl-div'>
                 <table className="table table-bordered">
@@ -70,7 +87,7 @@ const Admin = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     )
 }
 
